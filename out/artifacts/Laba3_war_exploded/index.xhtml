@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+   <title>JSF Lab Work</title>
+   <h:outputStylesheet name="style-index.css" library="css"/>
+   <h:outputScript name="jquery-3.4.1.js" library="js"/>
+   <h:outputScript name="index.js" library="js"/>
+</h:head>
+<h:body onload="ShowTime()">
+   <div class="logotype">
+      Демичев Даниил Дмитриевич P3213
+      <br/>
+      Вариант №214000
+   </div><br />
+   <div id="imglog">
+      <h:graphicImage value="/resources/img/logo.png">
+      </h:graphicImage>
+   </div>
+   <br/>
+   <div class="logotype" id="time"></div>
+   <br/><br/><div id="mylink">
+   <h:link value="Вход" outcome="work" styleClass="link-go"/>
+</div>
+</h:body>
+</html>
+

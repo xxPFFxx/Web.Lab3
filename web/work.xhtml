@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+>
+<h:head>
+    <title>Web.Lab3</title>
+    <h:outputStylesheet name="style-work.css" library="css"/>
+    <h:outputScript name="jquery-3.4.1.js" library="js"/>
+    <h:outputScript name="graphManager.js" library="js"/>
+</h:head>
+<h:body onload="redraw();">
+    <f:view>
+        <center>
+            <br/>
+            <canvas height="360px" width="360px" id="zoneCanvas" title="График" />
+            <h:outputScript name="mouseListner.js" library="js"/>
+            <br/>
+            <br/>
+            <br/>
+
+            <h:form id="myForm">
+                <div class="d-header">
+                    Выберите Х
+                </div>
+                <br/>
+                <p:selectBooleanCheckbox id="param-x1" value="#{result.curX1}" itemLabel="-5">
+                </p:selectBooleanCheckbox>
+                <p:selectBooleanCheckbox id="param-x2" name="param-x" value="#{result.curX2}" itemLabel="-4">
+                </p:selectBooleanCheckbox>
+                <p:selectBooleanCheckbox id="param-x3" name="param-x" value="#{result.curX3}" itemLabel="-3">
+                </p:selectBooleanCheckbox>
+                <p:selectBooleanCheckbox id="param-x4" name="param-x" value="#{result.curX4}" itemLabel="-2">
+                </p:selectBooleanCheckbox>
+                <p:selectBooleanCheckbox id="param-x5" name="param-x" value="#{result.curX5}" itemLabel="-1">
+                </p:selectBooleanCheckbox>
+                <p:selectBooleanCheckbox id="param-x6" name="param-x" value="#{result.curX6}" itemLabel="0">
+                </p:selectBooleanCheckbox>
+                <p:selectBooleanCheckbox id="param-x7" name="param-x" value="#{result.curX7}" itemLabel="1">
+                </p:selectBooleanCheckbox>
+                <div class="d-header">
+                    Введите Y
+                </div>
+                <br/>
+                <h:inputText id="param-y" name="param-y" required="true" styleClass="inputY" maxlength="8" requiredMessage="Введите значение" value="#{result.curY}">
+                    <f:validator validatorId="ValidatorY"/>
+                </h:inputText><br/>
+                <h:message for="param-y" style="color:red"/>
+                <div class="d-header">
+                    Выберите R
+                </div>
+                <br/>
+                <ace:sliderEntry value="#{result.curR}" id="param-r" min="2" max="5" stepPercent="25"/>
+                <h:message for="param-r" style="color:red"/>
+
+                <p:remoteCommand name="sendClick"
+                                 action="#{result.checkClick()}" update="result-table" partialSubmit="true" process="@this"/>
+                <p:remoteCommand name="callRedraw"
+                                 action="#{result.callRedraw()}" partialSubmit="true" process="@this"/>
+                <br/><br/>
+                <h:commandButton type="submit"
+                                 value="Отправить"
+                                 action="#{result.addResult()}"
+                                 styleClass="link-go"
+                /><br/><br/>
+
+            </h:form>
+
+            <br/>
+
+            <p:outputPanel id="runtime_panel" autoUpdate="true" />
+
+            <h:dataTable   var="res" value="#{result.allResults}"
+                         styleClass="article-table"
+                         rules="all" id="result-table">
+                <h:column>
+                    <f:facet name="header">X</f:facet>
+                    #{res.x}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Y </f:facet>
+                    #{res.y}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">R</f:facet>
+                    #{res.r}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Попадание</f:facet>
+                    #{res.smatch}
+                </h:column>
+            </h:dataTable><br/>
+            <h:link value="На главную" outcome="main"  styleClass="link-go"/>
+        </center>
+    </f:view>
+</h:body>
+</html>

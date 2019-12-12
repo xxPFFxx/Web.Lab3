@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.pff.Result" table="results">
+        <id name="resultID" type="int">
+            <column name="RESID" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="sessionID" type="string">
+            <column name="SESSIONID" length="20" not-null="true" />
+        </property>
+        <property name="x" type="double">
+            <column name="X" length="20" not-null="true" />
+        </property>
+        <property name="y" type="double">
+            <column name="Y" length="7" not-null="true" />
+        </property>
+        <property name="r" type="double">
+            <column name="R" length="7" not-null="true" />
+        </property>
+        <property name="checking" type="int">
+            <column name="CHECKING" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
