@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Laba3:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/Laba3_war</output-path>
+    <root id="archive" name="Laba3_war.war">
+      <element id="artifact" artifact-name="Laba3:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="org.hibernate:hibernate-core:5.4.0.Final" />
+          <element id="library" level="project" name="org.primefaces:primefaces:7.0" />
+          <element id="library" level="project" name="ojdbc8-12.2.0.1" />
+        </element>
+        <element id="directory" name="classes">
+          <element id="library" level="project" name="oracle" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

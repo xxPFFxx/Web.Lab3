@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Laba3:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Laba3_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Laba3/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Laba3" />
+          <element id="library" level="project" name="oracle" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Mojarra-2.4.0" />
+          <element id="library" level="project" name="org.hibernate:hibernate-core:5.4.0.Final" />
+          <element id="library" level="project" name="org.primefaces:primefaces:7.0" />
+          <element id="library" level="project" name="ojdbc8-12.2.0.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

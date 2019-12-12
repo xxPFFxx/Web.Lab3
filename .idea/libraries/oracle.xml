@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="oracle">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/oracle" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
